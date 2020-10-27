@@ -39,16 +39,40 @@ public class LambdaMethods {
 					characters.add(s.charAt(a) + "");
 					int chance = r.nextInt(2);
 					if(chance == 0) {
-						characters.get(a).toUpperCase();
+						characters.set(a, characters.get(a).toUpperCase());
 					}
 					finalWord = finalWord + characters.get(a);
 				}
 				System.out.println(finalWord);
 		}, "test");
 		//4. Call the printCustonMessage method using a lambda so that the String prints with a period in between each character.
-		
+		printCustomMessage((s)->{
+
+			ArrayList<String> characters = new ArrayList<String>();
+			String finalWord = "";
+				for(int a = 0; a < s.length(); a++) {
+					characters.add(s.charAt(a) + ".");
+					finalWord = finalWord + characters.get(a);
+				}
+				System.out.println(finalWord);
+		}, "test");
 		//5. Call the printCustonMessage method using a lambda so that the String prints without any vowels.
-	
+		printCustomMessage((s)->{
+int counter = 0;
+			ArrayList<String> characters = new ArrayList<String>();
+			String finalWord = "";
+				for(int a = 0; a < s.length(); a++) {
+					
+					if(s.charAt(a) != 'a' && s.charAt(a) != 'e' && s.charAt(a) != 'i' && s.charAt(a) != 'o' && s.charAt(a) != 'u' ) {
+						characters.add(s.charAt(a) + "");
+						finalWord = finalWord + characters.get(counter );
+						counter++;
+					}
+					
+					
+				}
+				System.out.println(finalWord);
+		}, "testaeiouaaaaaaaaaaaaaaaaaaaaaaaaaeeeeeeeeeeeeeeeeeeeeeeeeeeiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooo");
 	}
 	
 	public static void printCustomMessage(SpecialPrinter sp, String value) {
